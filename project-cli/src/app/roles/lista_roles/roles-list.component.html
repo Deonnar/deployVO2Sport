@@ -1,0 +1,33 @@
+<div class='row'>
+    <div class='col-md-2'>
+        <a><button (click)='onNewRole()'class='btn btn-success'> Nuevo Rol </button> </a>          
+    </div>
+</div>
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='itemsRoles && itemsRoles.length'>
+            <thead>
+                <tr> 
+                    <th>Nombre</th> 
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let unRol of itemsRoles'>
+                    <td>{{unRol.roleName}}</td>                         
+                    <td><a>
+                        <button  (click)='onRemoveRow(unRol)'class='btn btn-danger glyphicon glyphicon-trash'>
+                          
+                        </button>
+                        </a>                               
+                    </td>                     
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>  

@@ -1,0 +1,33 @@
+<div class="col-md-6 col-md-offset-3">
+    <div [hidden]="submitted">
+        <h1>{{pageTitle}}</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="this.category.Name" name="name"
+                    #name="ngModel" placeholder="Ingrese el nombre de la categoría">
+                    <div [hidden]="name.valid || name.pristine"
+                        class="alert alert-danger">
+                    El nombre es requerido
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" id="description"
+                    [(ngModel)]="this.category.Description" name="description"
+                    #name="ngModel" placeholder="Ingrese la descripción de la categoría">
+            </div>
+             <div class="form-group">
+                <label for="active">Activa?</label>
+                <input type="checkbox"  id="active"
+                    [(ngModel)]="this.category.Active" name="active"
+                    #name="ngModel">
+            </div>
+        <button  class="btn btn-default" [routerLink]="['/categorias']">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Guardar</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,11 @@
+<nav class='navbar navbar-default'>
+    <div class='container-fluid'>
+        <a class='navbar-brand'>{{pageTitle}}</a>
+        <ul  class='nav navbar-nav'>
+            <li><a [routerLink]="['/home']"><i class="glyphicon glyphicon-home" aria-hidden="true"></i> Inicio</a></li>
+        </ul>
+        <vo2-menu-client [isLogged]="isLogged"></vo2-menu-client>
+        <vo2-menu-login [isLogged]="isLogged" (logoutClicked)='onLogoutClicked($event)'></vo2-menu-login>
+    </div>
+    <vo2-menu-administration [Administrador]="Administrador" [Gerente]="Gerente"></vo2-menu-administration>
+</nav>

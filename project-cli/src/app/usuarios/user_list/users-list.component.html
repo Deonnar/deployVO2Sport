@@ -1,0 +1,67 @@
+<div class='row'>
+    <div class='col-md-2'>
+        <a><button (click)='onNewUser()'class='btn btn-success'> Nuevo Usuario </button> </a>          
+    </div>
+</div>
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'> 
+        <div class='table-responsive'>
+            <table class='table' *ngIf='itemsUsers'>
+                <thead>
+                    <tr> 
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>   
+                        <th>Email</th>   
+                        <th>Telefono</th>   
+                        <th>Activo</th>   
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor='let aUser of itemsUsers'>
+                        
+                        <td>{{aUser.userId}}</td>
+                        <td>{{aUser.name}}</td>
+                        <td>{{aUser.surname}}</td>
+                        <td>{{aUser.address}}</td> 
+                        <td>{{aUser.email}}</td>
+                        <td>{{aUser.phone}}</td>
+                        <td><input type="checkbox" [checked]="aUser.active" disabled="disabled"/></td>
+                        
+                        <td>
+                             <a>
+                                <button  (click)='onDetailRow(aUser.userId)'class='btn btn-info glyphicon glyphicon-info-sign'>
+                                   
+                                </button>
+                            </a>                               
+                        </td>  
+                        <td>
+                            <a>
+                                <button  (click)='onEditRow(aUser.userId)'class='btn btn-primary glyphicon glyphicon-edit'>
+                                   
+                                </button>
+                            </a>                               
+                        </td>    
+                         <td>
+                             <a>
+                                <button  (click)='onRemoveRow(aUser.userId)'class='btn btn-danger glyphicon glyphicon-trash'>
+                                  
+                                </button>
+                            </a>                               
+                        </td>
+                                              
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

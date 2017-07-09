@@ -1,0 +1,59 @@
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>       
+        <br>
+        <div class='table-responsive' *ngIf='productos && productos.length'>
+                <div *ngFor='let unProducto of productos'>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img *ngIf='!unProducto.Pictures || unProducto.Pictures.length == 0' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTcWEdaqxwyqjRwfFgik_aO_wrWAuyHP0kifIBjFgZ0qfswjDRkWp6Bs" 
+                            class="img-responsive center-block"
+                            style="width:180px;padding:20px"/>
+                        <img *ngIf='unProducto.Pictures && unProducto.Pictures.length > 0'
+                            [src]='unProducto.Pictures[0].DataFile'
+                            [title]='unProducto.Pictures[0].Name'
+                            [style.width.px]='180'
+                            [style.padding.px]='5'/>
+                        <div class="caption">
+                            <h3>{{unProducto.Name}}</h3>
+                            <p>{{unProducto.Description}}</p>
+                            <p>{{unProducto.Brand}}</p>
+                            <p>$U {{unProducto.Price}}</p>
+                            <div *ngIf='unProducto.Stock && unProducto.Stock > 0'class="alert alert-success" role="alert">
+                                <p *ngIf='unProducto.Stock && unProducto.Stock > 0'>En stock!!!</p>
+                            </div>
+                           
+                                                     
+                           
+                        </div>
+                        </div>
+                    </div>
+                    <div [hidden]="submitted" class="col-sm-6 col-md-4">
+                        <h3>Comentarios</h3>
+                        <form name="form" (ngSubmit)="f.form.valid && onReview()" #heroForm="ngForm" novalidate>
+                            <div class="form-group">
+                               <input type="text" class="form-control" id="name"
+                                    required
+                                    [(ngModel)]="review.Text" name="name"
+                                    #name="ngModel" placeholder="Ingrese el comentario">
+                                    <div [hidden]="name.valid || name.pristine"
+                                        class="alert alert-danger">
+                                    El comentario es requerido
+                                    </div>
+                            </div>
+                        </form>
+                        <div class="alert alert-info" role="alert">La infromación que ingrese sera util para otros usuarios.</div>
+                        <a>
+                            <button [disabled]="!heroForm.form.valid" (click)='onReview(unProducto.ProductId)'class='btn btn-success btn-lg'> Confirmar
+                            <i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i> 
+                            </button>
+                        </a>  
+                    </div>
+                </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,28 @@
+    <div class='col-md-2'>Fecha desde:</div>
+    <div class='col-md-4'>
+        <input id="dataFromId" type='date' maxlength="10"  [(ngModel)]='this.dataFilter.dateFrom'
+         placeholder="yyyy-MM-dd" required="required"  min="2000-01-01"/>
+    </div>
+    <div class='col-md-2'>Fecha hasta:</div>
+    <div class='col-md-4'>
+        <input id ="dateToId" type='date' maxlength="10" [(ngModel)]="this.dataFilter.dateTo" 
+        placeholder="yyyy-MM-dd" required="required" min="2000-01-01"/>
+    </div>
+     
+    <div *ngIf="dataFilter.showCboCategories">
+      <div class='col-md-2'>Categoria:</div>
+         <div class='col-md-4'>
+             <input  type="text" id ="txtcategoryId" maxlength="2"
+              [(ngModel)]="this.dataFilter.cboCategoryValue" required="required"/>
+        </div>
+    </div>
+    <div *ngIf="dataFilter.showTxtNumber">
+         <div class='col-md-2'>Cantidad:</div>
+         <div class='col-md-4'>
+             <input  type="number" id ="txtNumberId" maxlength="2" 
+             [(ngModel)]="this.dataFilter.txtNumberValue" required="required" />
+        </div>
+    </div>
+     <div class='col-md-8'>
+        <button (click)='onfilter()'class='btn btn-primary'>Filtrar</button>
+    </div>

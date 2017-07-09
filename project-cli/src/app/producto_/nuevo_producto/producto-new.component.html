@@ -1,0 +1,68 @@
+                       
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>{{pageTitle}}</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="this.producto.nombre" name="name"
+                    #name="ngModel" placeholder="Ingrese el nombre del producto">
+                    <div [hidden]="name.valid || name.pristine"
+                        class="alert alert-danger">
+                    El nombre es requerido
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Descripción</label>
+                <input type="text" class="form-control" id="description"
+                    required
+                    [(ngModel)]="this.producto.descripcion" name="name"
+                    #name="ngModel" placeholder="Ingrese la descripción">
+                    <div [hidden]="name.valid || name.pristine"
+                        class="alert alert-danger">
+                    La descripción es requerida
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="description"
+                    required
+                    [(ngModel)]="this.producto.marca" name="marca"
+                    #marca="ngModel" placeholder="Ingrese la marca">
+                    <div [hidden]="marca.valid || marca.pristine"
+                        class="alert alert-danger">
+                    La marca es requerida
+                    </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="text" class="form-control" id="precio"
+                    required
+                    [(ngModel)]="this.producto.precio" name="precio"
+                    #precio="ngModel" placeholder="Ingrese el precio">
+                    <div [hidden]="precio.valid || precio.pristine"
+                        class="alert alert-danger">
+                    El precio es requerido
+                    </div>
+            </div>
+  
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="text" class="form-control" id="stock"
+                    required
+                    [(ngModel)]="this.producto.stock" name="stock"
+                    #stock="ngModel" placeholder="Ingrese el stock">
+                    <div [hidden]="stock.valid || stock.pristine"
+                        class="alert alert-danger">
+                    El stock es requerido
+                    </div>
+            </div>
+
+        <button  class="btn btn-default" [routerLink]="['/administar-productos']">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Guardar</button>
+        </form>
+    </div>
+</div>

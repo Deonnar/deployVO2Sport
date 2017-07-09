@@ -1,0 +1,47 @@
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>       
+        <br>
+        
+        <div class='table-responsive'>
+            <table class='table' *ngIf='productos && productos.length'>
+                <thead>
+                    <tr> 
+                        <th>Producto</th>
+                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>Precio</th> 
+                        <th>Stock</th>   
+                        <th>Active</th>                           
+                        <th></th>   
+                    </tr>
+                </thead>
+                <!--Cuerpo de la tabla-->
+                <tbody>
+                    <tr *ngFor='let unProducto of productos'>
+                        
+                        <td>{{unProducto.Name}}</td>
+                        <td>{{unProducto.Description}}</td>
+                        <td>{{unProducto.Brand}}</td>
+                        <td>{{unProducto.Price }}</td> 
+                        
+                        <td>{{unProducto.Stock}}</td> 
+                        <td>{{unProducto.Active}}</td> 
+                                                 
+                        <!--td><a [routerLink]="['/ver-producto', unProducto.ProductId]">
+                            <button class='btn btn-primary'>
+                                Ver             
+                            </button>
+                          </a>
+                        </td-->        
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

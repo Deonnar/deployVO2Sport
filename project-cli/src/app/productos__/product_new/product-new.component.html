@@ -1,0 +1,98 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>{{pageTitle}}</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="product.Name" name="name"
+                    #name="ngModel" placeholder="Ingrese el nombre del producto">
+                    <div [hidden]="name.valid || name.pristine"
+                        class="alert alert-danger">
+                    El nombre es requerido
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="desc">Descripción</label>
+                <input type="text" class="form-control" id="description"
+                    required
+                    [(ngModel)]="product.Description" name="desc"
+                    #desc="ngModel" placeholder="Ingrese la descripción">
+                    <div [hidden]="desc.valid || desc.pristine"
+                        class="alert alert-danger">
+                    La descripción es requerida
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca"
+                    required
+                    [(ngModel)]="product.Brand" name="marca"
+                    #marca="ngModel" placeholder="Ingrese la marca">
+                    <div [hidden]="marca.valid || marca.pristine"
+                        class="alert alert-danger">
+                    La marca es requerida
+                    </div>
+            </div>            
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio"
+                    required
+                    [(ngModel)]="product.Price" name="precio"
+                    #precio="ngModel" placeholder="Ingrese el precio">
+                    <div [hidden]="precio.valid || precio.pristine"
+                        class="alert alert-danger">
+                    El precio es requerido
+                    </div>
+            </div>
+  
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" class="form-control" id="stock"
+                    required
+                    [(ngModel)]="product.Stock" name="stock"
+                    #stock="ngModel" placeholder="Ingrese el stock">
+                    <div [hidden]="stock.valid || stock.pristine"
+                        class="alert alert-danger">
+                    El stock es requerido
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Categoria</label>             
+                <select class="form-control margin-bottom" [(ngModel)]="Selected" name="Category" (change)="onChange($event.target.value)">
+                 <option *ngFor="let m of itemsCategories" [ngValue]="m.CategoryId">{{m.CategoryId }} - {{m.Name}}</option>
+                 </select>
+            </div>
+             <div class="form-group">
+                <label for="active">Activa?</label>
+                <input type="checkbox"  id="active"
+                    [(ngModel)]="product.Active" name="active"
+                    #active="ngModel" checked="checked">
+            </div>
+            <h3>Adjuntar imagen</h3>
+             <div class="form-group">
+                <label for="imgname">Nombre</label>
+                <input type="text" class="form-control" id="imgname"
+                    [(ngModel)]="picture.Name" name="imgname"
+                    #imgname="ngModel" placeholder="Ingrese el nombre de la imagen">
+            </div>
+             <div class="form-group">
+                <label for="img">Imagen</label>
+                <input type="text" class="form-control" id="img"
+                    [(ngModel)]="picture.DataFile" name="img"
+                    #img="ngModel" placeholder="Pegue la imagen en formato de string">
+            </div>
+             <div class="form-group">
+                <label for="ext">Extensión</label>
+                <input type="text" class="form-control" id="ext"
+                    [(ngModel)]="picture.Format" name="ext"
+                    #ext="ngModel" placeholder="Ingrese la extension">
+            </div>
+
+        <button  class="btn btn-default" [routerLink]="['/administar-productos']">Cancelar</button>
+        <button type="submit" class="btn btn-success"  [disabled]="!heroForm.form.valid">Guardar</button>
+        </form>
+    </div>
+</div>

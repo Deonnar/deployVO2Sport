@@ -1,0 +1,53 @@
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>       
+        <br>
+               <div class='table-responsive' *ngIf='productos && productos.length'>
+                <div *ngFor='let unProducto of productos'>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img *ngIf='!unProducto.Pictures || unProducto.Pictures.length == 0' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTcWEdaqxwyqjRwfFgik_aO_wrWAuyHP0kifIBjFgZ0qfswjDRkWp6Bs" 
+                            class="img-responsive center-block"
+                            style="width:180px;padding:20px"/>
+                        <img *ngIf='unProducto.Pictures && unProducto.Pictures.length > 0'
+                            [src]='unProducto.Pictures[0].DataFile'
+                            [title]='unProducto.Pictures[0].Name'
+                            [style.width.px]='180'
+                            [style.padding.px]='5'/>
+                        <div class="caption">
+                            <h3>{{unProducto.Name}}</h3>
+                            <p>{{unProducto.Description}}</p>
+                            <p>{{unProducto.Brand}}</p>
+                            <p>$U {{unProducto.Price}}</p>
+                            <div *ngIf='unProducto.Stock && unProducto.Stock > 0'class="alert alert-success" role="alert">
+                                <p *ngIf='unProducto.Stock && unProducto.Stock > 0'>En stock!!!</p>
+                            </div>
+                           
+                           <div *ngIf='unProducto.Stock == 0'class="alert alert-danger" role="alert">
+                                 <p *ngIf='unProducto.Stock == 0'>Momentaneamente sin stock</p>
+                            </div>
+                           
+                            <p> 
+                                <a>
+                                    <button  (click)='onDetailRow(unProducto.ProductId)'class='btn btn-info'> detalles
+                                        <i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i> 
+                                    </button>
+                                </a> 
+                                <a>
+                                <button  (click)='addToCart(unProducto.ProductId)'class='btn btn-success '> agregar al
+                                    <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> 
+                                </button>
+                                </a> 
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+</div> 

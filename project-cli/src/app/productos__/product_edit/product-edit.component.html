@@ -1,0 +1,99 @@
+                      
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Editar Producto</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="id">Id del Producto</label>
+                <input type="text" class="form-control" id="id"
+                      readonly
+                    [(ngModel)]="this.product.ProductId" name="id"
+                    #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="this.product.Name" name="name"
+                    #name="ngModel" placeholder="Ingrese el nombre del producto">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" id="description"
+                    required
+                    [(ngModel)]="this.product.Description" name="description"
+                    #name="ngModel" placeholder="Ingrese la descripción">
+            </div>           
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca"
+                    required
+                    [(ngModel)]="this.product.Brand" name="marca"
+                    #marca="ngModel" placeholder="Ingrese la marca">        
+            </div>            
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio"
+                    required
+                    [(ngModel)]="this.product.Price" name="precio"
+                    #precio="ngModel" placeholder="Ingrese el precio">                   
+            </div>
+  
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" class="form-control" id="stock"
+                    required
+                    [(ngModel)]="this.product.Stock" name="stock"
+                    #stock="ngModel" placeholder="Ingrese el stock">                  
+            </div>
+
+            <div class="form-group">
+                <label for="name">Categoria</label>             
+                <select class="form-control margin-bottom" [(ngModel)]="Selected" name="Category">
+                 <option *ngFor="let m of itemsCategories" [ngValue]="m">{{m.Name}}</option>
+                 </select>
+            </div>
+        
+           <div class="form-group">
+                <label for="n">Activa?</label>
+                <input type="checkbox"  id="active"
+                    [(ngModel)]="this.product.Active" name="n"
+                    #n="ngModel" checked="checked">
+            </div>     
+            
+<!--
+             <div class="form-group">
+                <label for="stock">Variables</label>
+                <input type="text" class="form-control" id="stock"
+                                       [(ngModel)]="this.product.CategoryId" name="stock"
+                    #stock="ngModel" placeholder="Ingrese una Categoria">
+            </div>-->
+            <h3>Adjuntar imagen</h3>
+             <div class="form-group">
+                <label for="imgname">Nombre</label>
+                <input type="text" class="form-control" id="imgname"
+                    [(ngModel)]="picture.Name" name="imgname"
+                    #imgname="ngModel" placeholder="Ingrese el nombre de la imagen">
+            </div>
+             <div class="form-group">
+                <label for="img">Imagen</label>
+                <input type="text" class="form-control" id="img"
+                    [(ngModel)]="picture.DataFile" name="img"
+                    #img="ngModel" placeholder="Pegue la imagen en formato de string">
+            </div>
+             <div class="form-group">
+                <label for="ext">Extensión</label>
+                <input type="text" class="form-control" id="ext"
+                    [(ngModel)]="picture.Format" name="ext"
+                    #ext="ngModel" placeholder="Ingrese la extension">
+            </div>
+        <button  class="btn btn-default" [routerLink]="['/administrar-productos']">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Guardar</button>
+      
+        </form>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>       
+        <br>
+        
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr> 
+                        <th>Producto</th>
+                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>Precio</th> 
+                        <th>Cantidad</th>
+                        <th>Total</th>                       
+                        <th></th>   
+                    </tr>
+                </thead>
+                <!--Cuerpo de la tabla-->
+                <tbody *ngFor='let item of purchase.ProductLines'>
+                    <tr>
+                        
+                        <td>{{item.Product.Name}}</td>
+                        <td>{{item.Product.Description}}</td>
+                        <td>{{item.Product.Brand}}</td>
+                        <td>{{item.Product.Price }}</td> 
+                        <td>{{item.Quantity }}</td> 
+                        <td>{{item.Quantity * item.Product.Price }}</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

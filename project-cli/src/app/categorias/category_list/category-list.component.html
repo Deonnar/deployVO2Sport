@@ -1,0 +1,46 @@
+<div class='row'>
+    <div class='col-md-2'>
+        <a><button (click)='onNewCategory()'class='btn btn-success'> Nueva categoría </button> </a>          
+    </div>
+</div>
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='itemsCategories && itemsCategories.length'>
+            <thead>
+                <tr> 
+                    <th>Id</th>
+                    <th>Nombre</th> 
+                    <th>Descripcion</th> 
+                    <th>Activo?</th> 
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let aCategory of itemsCategories'>
+                    <td>{{aCategory.CategoryId}}</td>   
+                    <td>{{aCategory.Name}}</td>
+                    <td>{{aCategory.Description}}</td>
+                    <td>{{aCategory.Active}}</td>                      
+                    <td><a>
+                        <button  (click)='onEditRow(aCategory.CategoryId)'class='btn btn-primary glyphicon glyphicon-edit'>
+                            
+                        </button>
+                        </a>                               
+                    </td>   
+                      <td><a>
+                        <button  (click)='onRemoveRow(aCategory.CategoryId)' class='btn btn-danger glyphicon glyphicon-trash'>
+                             
+                        </button>
+                        </a>                               
+                    </td>                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>  

@@ -1,0 +1,38 @@
+[
+    {
+        "nombre": "1",
+        "codigo": "001",
+        "descripcion": "3",
+        "marca": "Grande",
+        "precio": 23
+    },
+    {
+        "nombre": "1",
+        "codigo": "111",
+        "descripcion": "3",
+        "marca": "Grande",
+        "precio": 23
+    },
+        {
+       "nombre": "1",
+        "codigo": "2222",
+        "descripcion": "3",
+        "marca": "Grande",
+        "precio": 23
+    },
+    {
+       "nombre": "1",
+        "codigo": "Bo3333bby",
+        "descripcion": "3",
+        "marca": "Grande",
+        "precio": 23
+    },
+    {
+      "nombre": "1",
+        "codigo": "44444",
+        "descripcion": "3",
+        "marca": "Grande",
+        "precio": 23
+    }
+
+]

@@ -1,0 +1,56 @@
+
+<div *ngIf='messge' class="alert alert-info" role="alert">{{messge}}</div>
+<div class='row'>
+    <div class='col-md-2'>
+        <a><button (click)='onNewProductField()'class='btn btn-success'> Nuevo Campo </button> </a>          
+    </div>
+</div>
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='itemsProductField && itemsProductField.length'>
+            <thead>
+                <tr> 
+                    <th>Id</th>
+                    <th>Nombre</th> 
+                    <th>Tipo</th> 
+                    <th>Valor</th> 
+                    <th>Activo</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let item of itemsProductField'>
+                    <td>{{item.ProductFieldId}}</td>   
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Type}}</td>
+                    <td>{{item.Value}}</td>
+                    <td><input type="checkbox" [checked]="item.Active" disabled="disabled"/></td>                      
+                      
+                    <td>
+                        <a>
+                            <button  (click)='onEditRow(item.ProductFieldId)'class='btn btn-primary glyphicon glyphicon-edit'>
+                                
+                            </button>
+                        </a>                               
+                    </td>    
+                        <td>
+                            <a>
+                            <button  (click)='onRemoveRow(item.ProductFieldId)'class='btn btn-danger glyphicon glyphicon-trash'>
+                                
+                            </button>
+                        </a>                               
+                    </td>          
+                                   
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>  

@@ -1,0 +1,79 @@
+<div class="col-md-6 col-md-offset-3">
+    <div [hidden]="submitted">
+        <h1>{{pageTitle}}</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+           
+            <div class="form-group">
+                <label for="aname">Nombre</label>
+                <input type="text" class="form-control" id="aname"
+                    required
+                    [(ngModel)]="this.user.name" name="aname"
+                    #aname="ngModel" placeholder="Ingrese el nombre"
+                    disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input type="text" class="form-control" id="surname"
+                    required
+                    [(ngModel)]="this.user.surname" name="surname"
+                    #surname="ngModel" placeholder="Ingrese el apellido"
+                    disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" id="address"
+                    required
+                    [(ngModel)]="this.user.address" name="address"
+                    #address="ngModel" placeholder="Ingrese la dirección"
+                    disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email"
+                    required
+                    [(ngModel)]="this.user.email" name="email"
+                    #email="ngModel" placeholder="Ingrese el email" 
+                    disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="text" class="form-control" id="phone"
+                    required
+                    [(ngModel)]="this.user.phone" name="phone"
+                    #phone="ngModel" placeholder="Ingrese el teléfono"
+                    disabled="disabled">
+            </div>
+             <div class="form-group">
+                <label for="name">Activo?</label>
+                <input type="checkbox"  id="active"
+                    [(ngModel)]="this.user.active" name="name"
+                    #name="ngModel" checked="checked"
+                    disabled="disabled">
+            </div>
+              <div class="alert alert-success" role="alert"><h4>Su puntaje acumulado es: 50</h4></div>
+            <br>
+            <br>
+            <h2>Credenciales de acceso</h2>
+              <div class="form-group">
+                <label for="userName">Nombre de usuario</label>
+                <input type="text" class="form-control" id="userName"
+                    required
+                    [(ngModel)]="this.user.userName" name="userName"
+                    #userName="ngModel" placeholder="Ingrese el nombre de usuario"
+                    minlength="5" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="role">Rol</label>
+                <input type="text" class="form-control" id="role"
+                    
+                    [(ngModel)]="this.user.role" name="role"
+                    #role="ngModel" placeholder="Ingrese el rol"
+                    disabled="disabled">
+            </div>
+          
+        <button  class="btn btn-default" [routerLink]="['/usuarios']">Cancelar</button>
+        <button  (click)='onEditRow(this.user.userId)'class='btn btn-primary'>Editar</button>
+        </form>
+    </div>
+</div>
+

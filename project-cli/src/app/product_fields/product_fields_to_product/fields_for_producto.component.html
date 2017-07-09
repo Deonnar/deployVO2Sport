@@ -1,0 +1,45 @@
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='itemsProductField && itemsProductField.length'>
+            
+            <thead>
+                <tr>
+                    <th>Id</th>                      
+                    <th>Nombre</th> 
+                    <th>Tipo</th> 
+                    <th>Valor</th> 
+                    <th>Activo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let aProductField of itemsProductField'>
+                    <td>{{aProductField.ProductFieldId}}</td>
+                    
+                    <td>{{aProductField.Name}}</td>
+                    <td>{{aProductField.Type}}</td>
+                    <td>{{aProductField.Value}}</td>
+                    <td><input type="checkbox" [checked]="aProductField.Active" disabled="disabled"/></td>                      
+                    <td><a>
+                        <button  (click)='onRemoveRow(aProductField.ProductFieldId)'class='btn btn-danger'>
+                            Borrar 
+                        </button>
+                        </a>                               
+                    </td>
+                    <td><a>
+                        <button  (click)='onAddCategory(aProductField.ProductFieldId)'class='btn btn-primary'>
+                            Agregar Al Producto
+                        </button>
+                        </a>                               
+                    </td>            
+                                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>  

@@ -1,0 +1,88 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>
+        
+        <div *ngIf='message' class="alert alert-success" role="alert">{{message}}</div>
+
+        <div *ngIf='messageError' class="alert alert-danger" role="alert">{{messageError}}</div>
+
+        <div class="row" *ngFor='let item of cart.CartItems'>
+                    <div class="col-sm-6  col-md-4">
+                       
+                            <img *ngIf='item.Product.Pictures && item.Product.Pictures.length > 0'
+                                                        [src]='item.Product.Pictures[0].DataFile'
+                                                        [title]='item.Product.Pictures[0].Name'
+                                                        [style.width.px]='180'
+                                                        [style.margin.px]='5'/>
+                             <img *ngIf='!item.Product.Pictures || item.Product.Pictures.length == 0' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTcWEdaqxwyqjRwfFgik_aO_wrWAuyHP0kifIBjFgZ0qfswjDRkWp6Bs" 
+                            class="img-responsive center-block"
+                            style="width:180px;padding:20px"/>
+                    </div>
+                     <div class="col-sm-6  col-md-4">
+                        <div class="thumbnail">
+                        
+                        <div class="caption">
+                            <h3>{{item.Product.Name}}</h3>
+                            <p>{{item.Product.Description}}</p>
+
+                            <p>Marca:{{item.Product.Brand}}</p>
+                            <p>Cantidad: {{item.Quantity}}</p>
+                            <p>Precio Unitario: $U {{item.Product.Price}}</p>
+                            <h4>Subtotal: $U {{item.Product.Price * item.Quantity}}</h4>
+                            <a>
+                                <button  (click)='onRemoveRow(item.Product.ProductId)'class='btn btn-danger '> Remover
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true"></i> 
+                                </button>
+                            </a>  
+                        </div>
+                        </div>
+                    </div>
+                     
+                </div>
+                <div class="panel panel-default">
+                        <div class="panel-body">
+                             <h3>Total a pagar:  $U {{cart.Amount}}</h3>
+                             <div class="col-md-6 col-md-offset-3">
+                                <button (click)='toggleInfoDelivery()' class='btn btn-info'>
+                                    {{showInfoDelivery ?  'Ocultar':'Agregar'}} información de entrega
+                                </button>
+                             </div>
+                             <br>
+                            <div *ngIf='showInfoDelivery'>
+                                <div class="col-md-6 col-md-offset-3">
+                                <h3>Datos de la entrega</h3>
+                                    <form name="form" (ngSubmit)="f.form.valid && onCheckOut()" #f="ngForm" novalidate>
+                                        <div class="form-group">
+                                            <label for="address">Dirección</label>
+                                            <input type="text" class="form-control" name="address" 
+                                            [(ngModel)]="cart.Address" #address="ngModel" placeholder="Ingrese la dirección de entrega"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Teléfono</label>
+                                            <input type="text" class="form-control" name="phone"
+                                            [(ngModel)]="cart.Phone" #phone="ngModel" placeholder="Ingrese un teléfono"/>
+                                        </div>
+                                    </form>
+                                    <div class="alert alert-info" role="alert">Los datos de este formulario serán utilizados para la entrega. En caso contrario se utilizan los datos habituales.</div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <a>
+                                        <button  (click)='onCheckOut(cart.CartId)'class='btn btn-success btn-lg'> Comprar
+                                        <i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i> 
+                                        </button>
+                                    </a>  
+                                 </div>
+                            </div>
+                        </div>
+                </div>
+               
+    </div>
+</div>
+

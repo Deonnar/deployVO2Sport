@@ -1,0 +1,45 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>
+        <!-- Mensaje de error -->
+        <div class='has-error'> </div>
+
+        <!--Tabla de mascotas -->
+        <div class='table-responsive'>
+            <table class='table'>
+                <!--Cabezal de la tabla -->
+                <thead>
+                    <tr>
+                        <th>
+                            <button (click)='toggleSaleByCategory()'class='btn btn-primary'>
+                                {{showSaleByCategory ? 'Ocultar':'Ver'}} Ventas por Categorías
+                            </button>
+                        </th>
+                        <th>
+                            <button (click)='toggleMostProductSale()' class='btn btn-primary'>
+                                {{showMostProductSale ?  'Ocultar':'Ver'}} Productos mas Vendidos
+                            </button>
+                        </th>                      
+                    </tr>
+                </thead>
+                <!--Cuerpo de la tabla-->
+                <tbody>
+                    <div *ngIf='showSaleByCategory'>
+                        <vo2-reportByCategory>
+
+                        </vo2-reportByCategory>
+                    </div>
+                    <div *ngIf='showMostProductSale'>
+                         <vo2-reportProductQuantity>
+
+                        </vo2-reportProductQuantity>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

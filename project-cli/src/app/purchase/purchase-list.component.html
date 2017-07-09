@@ -1,0 +1,46 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}} 
+    </div>
+
+    <div class='panel-body'>
+        <!-- Mensaje de error -->
+        <div class='has-error'> </div>
+
+        <!--Tabla de mascotas -->
+        <div class='table-responsive'>
+             <div *ngIf='purchases && purchases.length == 0' class="alert alert-info" role="alert"><h4>Aún no ha realizado compras. Aproveche las ofertas imperdibles!!!</h4></div>
+            <table class='table' *ngIf='purchases && purchases.length'>
+                <!--Cabezal de la tabla -->
+                <thead>
+                    <tr>
+                        
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>                        
+                    </tr>
+                </thead>
+                <!--Cuerpo de la tabla-->
+                <tbody>
+                    <tr *ngFor='let item of purchases'>                       
+                         
+                        <td>{{item.PurchaseId }}</td>
+                        <td>{{item.Date| date:'dd/MM/yyyy'}}</td>
+                        <td>{{item.Amount}}</td>
+                        <td>{{item.Address }}</td> 
+                        <td>{{item.Phone }}</td>                         
+                          <!--<td><a>
+                            <button (click)='onDetailRow(item.PurchaseId)'class='btn btn-primary'>
+                                Ver Detalles 
+                            </button>
+                            </a>                            
+                        </td>     -->     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</div>
+ 

@@ -1,0 +1,18 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Review de Zapatillas</h2>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        
+        <!--div class="form-group">
+            <label for="product">Producto</label>
+            <output type="text">Zapatos</output>
+        </div-->
+         <div class="form-group">
+            <label for="review">Ingrese su Review</label>
+            <input type="text" class="form-control" name="review"  required />
+         </div>      
+        
+        <a [routerLink]="['/reviews']"><button (click)='toggleImage()'class='btn btn-primary'>Volver</button></a>  
+        <button (click)='toggleImage()'class='btn btn-primary'>Guardar</button>         
+    </form>
+</div>
+

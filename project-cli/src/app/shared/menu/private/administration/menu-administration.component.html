@@ -1,0 +1,23 @@
+<div *ngIf='Administrador' >
+    <nav class='navbar navbar-default'>
+        <div  class='container-fluid'>
+            <ul class='nav navbar-nav'> 
+                <li ><a [routerLink]="['/administar-productos']"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Productos</a></li>
+                <li><a [routerLink]="['/usuarios']"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Usuarios</a></li>
+                <li><a [routerLink]="['/roles']"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Roles</a></li>
+                <li><a [routerLink]="['/categorias']"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Categorias</a></li>                
+                <li><a [routerLink]="['/productos/campos']"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Campos Productos</a></li>
+                <li><a [routerLink]="['/reportes']"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Reportes</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div *ngIf='Gerente' >
+    <nav class='navbar navbar-default'>
+        <div  class='container-fluid'>
+            <ul class='nav navbar-nav'> 
+                 <li><a [routerLink]="['/reportes']"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Reportes</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

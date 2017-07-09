@@ -1,0 +1,65 @@
+        
+<div class='row'>
+    <div class='col-md-2'>
+        <a><button (click)='onNewProduct()'class='btn btn-success'> Nuevo Producto </button> </a>          
+    </div>
+</div>
+<br>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>
+
+        <div class='table-responsive'>
+            <table class='table' *ngIf='productos && productos.length'>
+                <thead>
+                    <tr> 
+                        <th>Producto</th>
+                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>Precio</th> 
+                        <th>Stock</th>   
+                        <th>Active</th>                           
+                        <th></th>   
+                    </tr>
+                </thead>
+                <!--Cuerpo de la tabla-->
+                <tbody>
+                    <tr *ngFor='let item of productos'>
+                        
+                        <td>{{item.Name}}</td>
+                        <td>{{item.Description}}</td>
+                        <td>{{item.Brand}}</td>
+                        <td>{{item.Price }}</td> 
+                        
+                        <td>{{item.Stock}}</td> 
+                        <td>{{item.Active}}</td> 
+                        <td>
+                             <a>
+                                <button  (click)='onDetailRow(item.ProductId)'class='btn btn-info glyphicon glyphicon-info-sign'>
+                                   
+                                </button>
+                            </a>                               
+                        </td>  
+                        <td>
+                            <a>
+                                <button  (click)='onEditRow(item.ProductId)'class='btn btn-primary glyphicon glyphicon-edit'>
+                                   
+                                </button>
+                            </a>                               
+                        </td>    
+                         <td>
+                             <a>
+                                <button  (click)='onRemoveRow(item.ProductId)'class='btn btn-danger glyphicon glyphicon-trash'>
+                                  
+                                </button>
+                            </a>                               
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,50 @@
+                      
+<div class="col-md-6 col-md-offset-3">
+    <div [hidden]="submitted">
+        <h1>Editar Campo</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="id">Id del Campo</label>
+                <input type="text" class="form-control" id="id"
+                      readonly
+                    [(ngModel)]="this.product_field.ProductFieldId" name="id"
+                    #name="ngModel">
+                   
+            </div>
+
+            <div class="form-group">
+                <label for="id">Nombre</label>
+                <input type="text" class="form-control" id="n"
+                      
+                    [(ngModel)]="this.product_field.Name" name="n"
+                    #name="ngModel">                   
+            </div>         
+           
+            <div class="form-group">
+                <label for="name">Tipo</label>             
+                <select class="form-control margin-bottom"  [(ngModel)]="this.product_field.Type" name="Type" required>
+                    <option value="Texto" [attr.selected]="this.product_field.Type =='Texto'">Texto</option>
+                    <option value="Numero" [attr.selected]="this.product_field.Type =='Numero'">Numero</option>
+                </select>
+            </div>      
+            <div class="form-group">
+                <label for="marca">Valor</label>
+                <input type="text" class="form-control" id="marca"
+                    required
+                    [(ngModel)]="this.product_field.Value" name="marca"
+                    #marca="ngModel" placeholder="Ingrese el valor">                
+            </div>            
+           <div class="form-group">
+                <label for="name">Activa?</label>
+                <input type="checkbox"  id="active"
+                    [(ngModel)]="this.product_field.Active" name="name"
+                    #name="ngModel" checked="checked">
+            </div>           
+            
+                      
+                 
+        <button  class="btn btn-default" [routerLink]="['/productos/campos']">Cancelar</button>
+        <button type="submit" class="btn btn-success"  [disabled]="!heroForm.form.valid">Guardar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+         {{pageTitle}}
+    </div>
+    <div class='panel-body'>        
+                   
+            <form>
+               <div class="row">
+                    <div class="col-sm-6  col-md-4">
+                       
+                            <img *ngIf='product.Pictures && product.Pictures.length > 0'
+                                                        [src]='product.Pictures[0].DataFile'
+                                                        [title]='product.Pictures[0].Name'
+                                                        [style.width.px]='300'
+                                                        [style.margin.px]='5'/>
+                             <img *ngIf='!product.Pictures || product.Pictures.length == 0' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTcWEdaqxwyqjRwfFgik_aO_wrWAuyHP0kifIBjFgZ0qfswjDRkWp6Bs" 
+                            class="img-responsive center-block"
+                            style="width:180px;padding:20px"/>
+                    </div>
+                     <div class="col-sm-6  col-md-4">
+                        <div class="thumbnail">
+                        
+                        <div class="caption">
+                            <h3>{{product.Name}}</h3>
+                            <p>{{product.Description}}</p>
+                            <p>{{product.Brand}}</p>
+                            <p>$U {{product.Price}}</p>
+                            <p *ngIf='product.Stock && product.Stock > 0'>En stock!!!</p>
+                            <a>
+                                <button  (click)='addToCart(product.ProductId)'class='btn btn-success '> agregar al
+                                <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> 
+                                </button>
+                            </a>  
+                        </div>
+                        </div>
+                    </div>
+                      <div class="col-sm-6  col-md-4">
+                        <div *ngIf='message' class="alert alert-success" role="alert">{{message}}</div>
+
+                        <div *ngIf='messageError' class="alert alert-danger" role="alert">{{messageError}}</div>
+                      </div>
+                </div>
+            </form>
+    </div>
+</div>
+<a [routerLink]="['/home']"><button class='btn btn-primary '><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver</button></a>  
+ 

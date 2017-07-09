@@ -1,0 +1,25 @@
+<table class="table">
+    <tr>
+        <td> 
+            <vo2-filterDate 
+                [dataFilter]='aDate' (filterClicked)='onFilterClicked($event)'>
+            </vo2-filterDate>
+        </td>           
+    <tr>
+</table> 
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            
+    </thead>
+    <tbody>
+        <tr *ngFor='let item of itemsProducts'>
+            <td>{{item.productName }}</td>
+            <td>{{item.count}}</td>
+            <td>{{item.dateSale | date:'dd/MM/yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
