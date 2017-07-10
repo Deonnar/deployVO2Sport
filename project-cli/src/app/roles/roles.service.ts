@@ -14,15 +14,20 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
+import { uri } from '../uri/uri';
+import { UriService } from '../uri/uri.service';
+
 import { Rol } from './roles';
 
 @Injectable()
 export class RolService {
-    private ROOT_URL : string = 'http://localhost:3600/api/';
+    private ROOT_URL : string;// = 'http://localhost:3600/api/';
     private WEB_API_URL_GETALL: string;
     headers: Headers;
     options: RequestOptions;
-    constructor(private _httpService: Http) { 
+
+    constructor(private _httpService: Http, private uriService: UriService ) { 
+            this.ROOT_URL = uriService.URI_API_URL;
             this.WEB_API_URL_GETALL = this.ROOT_URL+'roles/';
             this.headers = new Headers({ 
                 'Content-Type': 'application/json',

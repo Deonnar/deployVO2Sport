@@ -4,9 +4,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent }  from './app.component';
 
+
+import { UriComponent } from './uri/uri.component';
+import { UriService } from './uri/uri.service';
 
 
 //import { UsuariosListComponent }  from './usuarios/usuarios-list.component';
@@ -202,5 +204,6 @@ import { ConfigService } from "./config/config.service";
 
                   
   bootstrap:    [ AppComponent ],
+  providers: [UriComponent, UriService]
 })
 export class AppModule { }

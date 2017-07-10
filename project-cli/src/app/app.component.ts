@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { LoginService } from "./login/login.service";
 import { ActivatedRoute, Router } from '@angular/router';
 
+import  { UriService } from './uri/uri.service';
+
 @Component({
   selector: 'my-app',
-  providers: [LoginService],
+  providers: [LoginService,  UriService],
   templateUrl: './app.component.html',
 })
 export class AppComponent  {
