@@ -10,17 +10,17 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class UriService {
     
-    currentUri = 'api/pets/test-api.json';
+    currentUri = 'api/uri.json';
     obs: Observable<any>;
     loadedContent: any;
    // _uri:  Observable<uri>;
     data: any;
-    //public URI_API_URL : string = 'api/pets/uri.json';
+    public URI : string = 'api/uri.json';
     public URI_API_URL : string = 'http://localhost:3600/api/';
 
 
     constructor(private _httpService: Http) {
-
+            console.log('uri.service constructor');
      }
 
     /*getContent() {
@@ -28,8 +28,8 @@ export class UriService {
      }*/
      
     getUris(): Observable<uri> { 
-  
-        return this._httpService.get(this.URI_API_URL)
+
+        return this._httpService.get(this.URI)
         .map((response : Response) => <uri> response.json())
         .do(data => console.log('Los URI obtuvida es: ' + JSON.stringify(data)))
         .catch(this.handleError);

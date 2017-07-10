@@ -11,6 +11,7 @@ export class UriComponent implements OnInit {
     uri___:  uri;
 
     constructor(private _uriService : UriService) {
+        console.log('uri comp');
     }
    
     ngOnInit(): void {

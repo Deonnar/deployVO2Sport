@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import  { UriService } from './uri/uri.service';
 
+import  { uri } from './uri/uri';
+
 @Component({
   selector: 'my-app',
   providers: [LoginService,  UriService],
@@ -18,9 +20,15 @@ export class AppComponent  {
     Administrador : boolean
     Gerente : boolean
     Cliente : boolean
-
-    constructor(private _loginService : LoginService, private _router : Router) {
-           
+    _uri: uri;
+    
+    constructor(private _uriService : UriService, private _loginService : LoginService, private _router : Router) {
+           console.log('app.component....');
     }
-
+  
+    ngOnInit(): void {
+         console.log('iniCIalizando....');
+        
+                               
+   }
 }
