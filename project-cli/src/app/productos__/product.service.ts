@@ -17,15 +17,20 @@ import 'rxjs/add/operator/switchMap';
 import { Product } from './product';
 import { Category} from "../categorias/category";
 
+import { uri } from '../uri/uri';
+import { UriService } from '../uri/uri.service';
+
+
 @Injectable()
 export class ProductService {
-    private ROOT_URL : string = 'http://localhost:3600/api/';
+    private ROOT_URL : string;//= 'http://localhost:3600/api/';
     private URL_PRODUCT: string;
     private URL_CATEGORIAS : string;
    
     headers: Headers;
     options: RequestOptions;
-    constructor(private _httpService: Http) { 
+    constructor(private uriService: UriService, private _httpService: Http) { 
+           this.ROOT_URL = this.uriService.URI_API_URL;
            this.URL_PRODUCT = this.ROOT_URL + "product/"
            this.URL_CATEGORIAS = this.ROOT_URL + "category/"
             this.headers = new Headers({ 

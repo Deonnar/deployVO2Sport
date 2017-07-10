@@ -8,9 +8,14 @@ import 'rxjs/add/operator/do'; //para hacer algo cada vez que llega una request 
 import { ProductQuantity } from './reportes';
 import { ProductCategory } from './reportes';
 
+import { uri } from '../uri/uri';
+import { UriService } from '../uri/uri.service';
+
+
+
 @Injectable()
 export class ReportesService {
-    private ROOT_URL : string = 'http://localhost:3600/api/';
+    private ROOT_URL : string;//= 'http://localhost:3600/api/';
     private WEB_API_URL_SALE_BY_CATEGORY : string;
     private WEB_API_URL_PRODUCT_QUANTITY : string;
     //Parameters
@@ -19,7 +24,9 @@ export class ReportesService {
     private categoryId : number = 1;
     private countRows : number = 1;
     
-    constructor(private _httpService: Http) { 
+
+    constructor(private uriService: UriService, private _httpService: Http) { 
+        this.ROOT_URL = this.uriService.URI_API_URL;
         var someDate = new Date();
         var numberOfDaysToAdd = -10;
         someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 

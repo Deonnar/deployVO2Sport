@@ -15,15 +15,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 import { Category } from './category';
+import { uri } from '../uri/uri';
+import { UriService } from '../uri/uri.service';
 
 @Injectable()
 export class CategoryService {
-    private ROOT_URL : string = 'http://localhost:3600/api/';
-   
+    private ROOT_URL : string;//= 'http://localhost:3600/api/';
     headers: Headers;
     options: RequestOptions;
-    constructor(private _httpService: Http) { 
-           
+     constructor(private uriService: UriService, private _httpService: Http) { 
+            this.ROOT_URL = this.uriService.URI_API_URL;
+       
             this.headers = new Headers({ 
                 'Content-Type': 'application/json',
                 'Cache-Control': 'no-cache',
